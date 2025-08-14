@@ -2,30 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/xampp/htdocs/Helico/public_html/php/connect.php</file>
-            <file>file:/C:/xampp/htdocs/Helico/public_html/js/class/edifici.js</file>
-            <file>file:/C:/xampp/htdocs/Helico/public_html/main.html</file>
-            <file>file:/C:/xampp/htdocs/Helico/public_html/js/class/corda.js</file>
-            <file>file:/C:/xampp/htdocs/Helico/public_html/js/class/rectvol.js</file>
-            <file>file:/C:/xampp/htdocs/Helico/public_html/php/thanksfor.php</file>
-            <file>file:/C:/xampp/htdocs/Helico/public_html/php/sendemail.php</file>
-            <file>file:/C:/xampp/htdocs/Helico/public_html/libraries/FileSaver.js</file>
-            <file>file:/C:/xampp/htdocs/Helico/public_html/js/class/rect.js</file>
-            <file>file:/C:/xampp/htdocs/Helico/public_html/style/heli.css</file>
-            <file>file:/C:/xampp/htdocs/Helico/public_html/php/sendscore.php</file>
-            <file>file:/C:/xampp/htdocs/Helico/public_html/style/human.css</file>
-            <file>file:/C:/xampp/htdocs/Helico/public_html/crea_mapa_1.html</file>
-            <file>file:/C:/xampp/htdocs/Helico/public_html/js/function/randbolet2.js</file>
-            <file>file:/C:/xampp/htdocs/Helico/public_html/index.html</file>
-            <file>file:/C:/xampp/htdocs/Helico/public_html/crea_mapa.html</file>
-            <file>file:/C:/xampp/htdocs/Helico/public_html/js/function/movement.js</file>
-            <file>file:/C:/xampp/htdocs/Helico/public_html/js/class/heli.js</file>
-            <file>file:/C:/xampp/htdocs/Helico/public_html/style/button.css</file>
-            <file>file:/C:/xampp/htdocs/Helico/public_html/php/showusers.php</file>
-            <file>file:/C:/xampp/htdocs/Helico/public_html/php/getusers.php</file>
-            <file>file:/C:/xampp/htdocs/Helico/public_html/js/class/person.js</file>
-            <file>file:/C:/xampp/htdocs/Helico/public_html/libraries/dom-to-image.js</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

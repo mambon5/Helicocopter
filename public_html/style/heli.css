@@ -4,10 +4,20 @@
   left:0px;
   width:50px;
   height: 25px;
+  border-radius: 0px;
+  color:white;
+  will-change: transform;
+  
+}
+.cosheli {   
+  position: absolute;
+  width:50px;
+  height: 25px;
   border-radius: 30px;
   background-color: DarkOliveGreen;
-  color:white;
+  will-change: transform;
 }
+
 .cuah {   
   position:absolute;
   top:-12px;
@@ -40,12 +50,90 @@
 .cara {   
   position:absolute;
   transform: rotate(90deg);
-  left:20px;
-  top:5px;
+  left:37px;
+  top:10px;
+  transform: scale(0.5) rotate(90deg);
 }
 .cara2 {   
   position:absolute;
   transform: rotate(0deg);
   left:20px;
   top:5px;
+}
+
+
+
+
+#helicop{
+    position:absolute;
+    background-color: none;
+    top:0px;
+    left:0px;
+}
+
+.mol_heli {   
+  position: absolute;
+  
+  left:0px;
+   /*with and height set when declaring the object in the main!*/
+  border-radius: 0px;
+  color:white;
+  will-change: transform;
+}
+.mol_heli_body {   
+  position: absolute;
+  top:-5px;
+  border-radius: 30px;
+  background-image: url("../pictures/helicopter/mainbody.png");
+  background-size: 80px;
+  background-repeat: no-repeat;
+}
+
+.mol_heli_cua {   
+  position:absolute;
+  top:-7px;
+  left:-47px;
+  border-radius: 30px;
+  background-image: url("../pictures/helicopter/cua.png");
+    background-size: 80px;
+     background-repeat: no-repeat;
+}
+.mol_heli_helixpeque {   
+  position:absolute;
+  top:-27px;
+  left:-55px;
+  background-image: url("../pictures/helicopter/helixpetita.png");
+    background-size: 20px;
+     background-repeat: no-repeat;
+}
+.mol_heli_helixgran {   
+    position:absolute;
+    top:-25px;
+    left:-41px;
+    
+    background-image: url("../pictures/helicopter/helixgran.png");
+    background-size: 150px;
+    transform-origin: 50% 100%;
+     background-repeat: no-repeat;
+}
+
+.mol_heli_cabina { 
+    position:absolute;
+    left:37px;
+    top:5px;
+    width:30px;
+    height:30px;
+    border-radius: 30px;
+    opacity:0.5;
+    background-color:aqua;
+}
+.mol_heli_pilot {  
+    position:absolute;
+    left:35px;
+    top:8px;
+    width:20px;
+    height:40px;
+    background-image: url("../pictures/helicopter/human.png");
+    background-size: 20px;
+     background-repeat: no-repeat;
 }

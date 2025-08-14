@@ -1,0 +1,16 @@
+/* tomato class */
+
+/* PREMIUM QUALITY HENIZ TOMATO*/
+
+
+.tomato{
+    position:absolute;
+    top:0px;
+    left:0px;
+    background-color: none;
+    border-radius: 0%;
+    visibility:hidden;
+    background-image:url("../pictures/tomato.png");
+    background-size:12px;
+    background-repeat: no-repeat;
+}

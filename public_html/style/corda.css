@@ -10,12 +10,15 @@ and open the template in the editor.
 
 #corda{
     position:absolute;
+    transform-origin: 0% 0%;
+}
+.segment{
+    position:absolute;
     top:0px;
     left:0px;
     background-color: #c79645;
     border-radius: 30%;
-    transform: rotate(20deg);
-    transform-origin: 0% 0%;
-    width:5px;
-    height:50px;
+    transform-origin: top center;
 }
+
+

@@ -6,10 +6,37 @@
 
 
 class edifici extends rectvol {
-    constructor(left,top,width,height,vx,vy,ax,ay, name) {
-        super(left,top,width,height,vx,vy,ax,ay, name);
+    constructor(left,top,width,height,vx,vy,ax,ay,ang, vang, aang,name, index) {
+        super(left,top,width,height,vx,vy,ax,ay, ang, vang, aang,name);
+        if(this._y < 300) this._y = 300;
+        if(this._y > 450) this._y = 450;
+        this._index = index;
+    }
+    
+    get index() {
+        return this._index;
+    }
+    
+    get y() {
+      return this._y;
+    }
+    
+    set index(ep) {
+        this._index = ep;
+    }
+    
+    set y(ep) {
+      this._y = ep;
+      if(this._y < 300) this._y = 300;
+      if(this._y > 450) this._y = 450;
     }
 
+    inc_index() {
+        maxindex++;
+        minindex++;
+        this._index = maxindex;;
+    }
+    
     draw(transf='') {
         super.draw(transf);
     }
@@ -32,5 +59,11 @@ class edifici extends rectvol {
         var border = 3;
         
         randquadrats(id,colors,fileshor,filesver,height,width,border);
+    }
+    
+    naiveCopy(obj)
+    {
+        this._index = obj.index;
+        super.naiveCopy(obj);
     }
 }

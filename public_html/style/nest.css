@@ -1,0 +1,11 @@
+#nest {
+    position:absolute;
+    width:65px;
+    height:41px;
+    top:0px;
+    left:0px;
+    background-image: url("../pictures/nest.png");
+    background-size:65px;
+    background-color:none;
+    visibility:hidden;
+}

@@ -12,12 +12,13 @@ button, .submitbut{
     background-color:CornflowerBlue;
     color:white;
     border-radius:10px;
+    font-family: "Comic Sans MS";
 }
 .submitbut {
     width:50%;
     height:20%;
     font-size:140%;
-    
+    font-family: "Comic Sans MS";
 }
 
 .submitbut, .butt1 {
@@ -32,4 +33,15 @@ button, .submitbut{
 .butt1:hover {
   background-color: lightblue; /* Green */
   color: black;
+}
+
+#mutemusic{
+    position:absolute;
+    left:5px;
+    top:5px;
+}
+#rndsong{
+    position:absolute;
+    left:100px;
+    top:5px;
 }

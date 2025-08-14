@@ -17,7 +17,7 @@ $msg = "First line of text\nSecond line of text";
 $msg = wordwrap($msg,70);
 
 // send email
-$to = "jcremades93@gmail.com, boby2@boboby.com";
+$to = "romdommas@gmail.com, boby2@boboby.com";
 mail($to,"My subject anonymous email",$msg);
 echo "email message: ". $msg;
 

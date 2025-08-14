@@ -17,7 +17,20 @@ body{
 .cel{
     background-color: blue;
 }
-
+.nuvol1{
+    position:absolute;
+    background-color:transparent;
+    background-image: url("../pictures/background/nuvol1.png");
+    background-size:100%;
+    background-repeat: no-repeat;
+}
+.nuvol2{
+    position:absolute;
+    background-color:transparent;
+    background-image: url("../pictures/background/nuvol2.png");
+    background-size:100%;
+    background-repeat: no-repeat;
+}
 .boleta {
     position:absolute;
     width: 30px;
@@ -38,71 +51,45 @@ body{
     animation-duration: 600s;
     animation-iteration-count: infinite;
     animation-delay: 0s;
+    will-change: transform;
 }
-.aura1 {
-    position:absolute;
-    width: 120px;
-    height: 120px;
-    border-radius: 100%;
-    background-color: white;
-    opacity: 0.3;
-    animation-name: aurachange;
-    animation-duration: 600s;
-    animation-iteration-count: infinite;
-    animation-delay: 0s;
-} 
-.aura2 {
-  position:absolute;
-  left: - 20px;
-  top:-40px;
-  width: 220px;
-  height: 220px;
-  border-radius: 100%;
-  background-color: white;
-  opacity: 0.3;
-  animation-name: aurachange;
-  animation-duration: 600s;
-  animation-iteration-count: infinite;
-  animation-delay: 0s;
-} 
 .solbunch {
+   width:20%;
+   height:20%;
   position:absolute;
+  border-radius: 100%;
   animation-name: mousol;
   animation-duration: 600s;
   animation-iteration-count: infinite;
   animation-delay: 0s;
+  will-change: transform;
 }
 
 @keyframes mousol {
-   0%   {left:100%;background-color:#eafeff }
-   30%   {left:50%;background-color:#eafeff }
-  90%  {left:-15%;background-color:#f7d7ab  }
-  100%  {left:-20%;background-color:#eafeff  }
+   0%   {transform: translateX(500%) }
+   30%   {transform: translateX(250%) }
+  90%  {transform: translateX(-15%) }
+  100%  {transform: translateX(-20%) }
 }
 @keyframes celcanvi {
-   0%   {left:100%;background-color:LightCyan }
-   40%   {left:50%;background-color:LightCyan }
-   43%   {left:50%;background-color:#f3f7d1 }
-   54%   {left:50%;background-color:#f3f7d1 }
-   67%   {left:50%;background-color:#ffa28b }
-  96%  {left:-10%;background-color:#ffa28b  }
-  100%  {left:-20%;background-color:LightCyan  }
+   0%   {background-color:LightCyan }
+   45%   {background-color:LightCyan }
+   48%   {background-color:#f3f7d1 }
+   58%   {background-color:#f3f7d1 }
+   72%   {background-color:#ffa28b }
+   82%   {background-color:#ffa28b }
+   86%  {background-color:#3366ff  }
+   94%  {background-color:#3366ff  }
+  96%   {background-color:#f3f7d1 }
+  100%  {background-color:LightCyan  }
 }
 @keyframes solcanvi1 {
   0%   {background-color:yellow }
   40%  {background-color:yellow }
   50%  {background-color:#f8d153 }
-  80%  {background-color:orange }
-  90%  {background-color:orange }
+  75%  {background-color:orange }
+  86%  {background-color:#d9d9d9 }
+  94%  {background-color:#d9d9d9 }
   100%  {background-color:yellow }
 }
 
-@keyframes aurachange{
-    0%   {opacity:1 }
-   40%   {opacity:1 }
-   43%   {opacity:0.6 }
-   54%   {opacity:0.4; background-color: white }
-   67%   {opacity:0.5; background-color: yellow }
-  96%  {opacity:0.5; background-color: yellow  }
-  100%  {opacity:1; background-color: white  }
-}
