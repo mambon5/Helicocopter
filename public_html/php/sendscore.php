@@ -27,21 +27,24 @@ $email =  filter_input(INPUT_POST, 'email');
 $comment =  filter_input(INPUT_POST, 'comentaris');
 $distance =  filter_input(INPUT_POST, 'distance');
 $clerks =  filter_input(INPUT_POST, 'clerks');
+$eggs =  filter_input(INPUT_POST, 'eggs');
 
 
-// echo nl2br("Welcome " . $user. "! with email: ". $email. ". Distance run: ".$distance.". Clerks rescued: ".$clerks.". You commented that: <br> ".$comment. "<br>");
+// echo nl2br("Welcome " . $user. "! with email: ". $email. ". Distance run: ".$distance.". 
+// Clerks rescued: ".$clerks." eggs nested: ".$eggs.". You commented that: <br> ".$comment. "<br>");
 
 if (empty($_POST['user']) || empty($_POST['email'])) {
     die("Error: user and email are required.");
 }
 
-$sql = sprintf("INSERT INTO helikopter_users (user, email, comment, distance, clerks, IP)
-VALUES ('%s','%s', '%s', %f, %d, '%s')", 
+$sql = sprintf("INSERT INTO helikopter_users (user, email, comment, distance, clerks, eggs, IP)
+VALUES ('%s','%s', '%s', %f, %d, %d, '%s')", 
 addslashes($user),
 addslashes($email),
 addslashes($comment),
 floatval($distance),  // <-- float
 intval($clerks),      // <-- enter
+intval($eggs),      // <-- enter
 addslashes($ip_address));
 
 
@@ -50,7 +53,7 @@ if ($conn->query($sql) === FALSE) {
 }
  
  //get scores from da people
- $sql = "SELECT user, distance, clerks FROM helikopter_users";
+ $sql = "SELECT user, distance, clerks, eggs FROM helikopter_users";
     $result = $conn->query($sql);
 
 	$result2 =  $result -> fetch_all(MYSQLI_ASSOC);
@@ -61,39 +64,52 @@ if ($conn->query($sql) === FALSE) {
 	$names = array_column($result2, 'user');
 	$scores = array_column($result2, 'distance');
 	$rescats = array_column($result2, 'clerks');
+	$ous = array_column($result2, 'eggs');
 
 	
-	array_multisort($rescats, SORT_DESC, $scores, SORT_DESC, $names );
 	
-
+	array_multisort($ous, SORT_DESC, $rescats, SORT_DESC, $scores, SORT_DESC, $names);
+	
 	$max = 12;
-	$rank = "<table id='userscrs'>   <tr> <th>Pos.</th> <th>Name</th>  <th>Distance (km) </th> <th> Clerks rescued </th> </tr>";
-	for($i = 0;  ($i < count($scores)) and ($i<$max) ; $i++) {
-		if($i<3) {
-			$rank = $rank . "<tr> <td ><b style='color:brown'>" .($i +1)."</b></td><td ><b style='color:brown'>" . $names[$i]. "</b></td> <td style='text-align: right;' ><b style='color:brown'>". 
-			 $scores[$i].	"</b></td> <td style='text-align: center;' ><b style='color:brown'>". $rescats[$i].		"</b></td></tr> ";
-		} elseif ($i<7) {
-		$rank = $rank . "<tr style='color:DarkCyan'> <td >" .($i +1)."</td><td >" . $names[$i]. "</td> <td style='text-align: right;' >". 
-			 $scores[$i].	"</td> <td style='text-align: center;' >". $rescats[$i].		"</td></tr>";
-		}  else {
-		    	$rank = $rank . "<tr style='color:gray'> <td >" .($i +1)."</td><td >" . $names[$i]. "</td> <td style='text-align: right;' >". 
-			 $scores[$i].	"</td> <td style='text-align: center;' >". $rescats[$i].		"</td></tr>";
+	$rank = "<table id='userscrs'> <tr> <th>Pos.</th> <th>Name</th> 
+	<th>Distance (km) </th> <th> Clerks rescued </th> <th> Eggs nested </th> </tr> ";
+	for ($i = 0;
+		($i < count($scores)) and($i < $max); $i++) {
+		if ($i < 3) {
+			$rank = $rank.
+			"<tr> <td ><b style='color:brown'>".($i + 1).
+			"</b></td><td ><b style='color:brown'>".$names[$i].
+			"</b></td> <td style='text-align: right;' ><b style='color:brown'>".$scores[$i].
+			"</b></td> <td style='text-align: center;' ><b style='color:brown'>".$rescats[$i].
+			"</b></td> <td style='text-align: center;' ><b style='color:brown'>".$ous[$i].
+			"</b></td></tr> ";
+		}
+		elseif($i < 7) {
+			$rank = $rank.
+			"<tr style='color:DarkCyan'> <td >".($i + 1).
+			"</td><td >".$names[$i].
+			"</td> <td style='text-align: right;' >".$scores[$i].
+			"</td> <td style='text-align: center;' >".$rescats[$i].
+			"</td> <td style='text-align: center;' >".$ous[$i].
+			"</td></tr>";
+		} else {
+			$rank = $rank.
+			"<tr style='color:gray'> <td >".($i + 1).
+			"</td><td >".$names[$i].
+			"</td> <td style='text-align: right;' >".$scores[$i].
+			"</td> <td style='text-align: center;' >".$rescats[$i].
+			"</td> <td style='text-align: center;' >".$ous[$i].
+			"</td></tr>";
 		}
 	}
-	$rank = $rank . "</table>";
-	//echo $rank;
+	$rank = $rank.
+	"</table>";
 
-
-
-
-	
-	
 	// Free result set
 	$result -> free_result();
 	
 $conn->close();
  
 
-
  
- header("Location: thanksfor.php?rank=$rank"); ?>
+ header("Location: thanksfor.php?rank=".urlencode($rank)); ?>

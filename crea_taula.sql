@@ -6,5 +6,6 @@ CREATE TABLE helikopter_users (
     comment TEXT,
     distance DECIMAL(10,2) DEFAULT 0,
     clerks INT DEFAULT 0,
+    eggs INT DEFAULT 0,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

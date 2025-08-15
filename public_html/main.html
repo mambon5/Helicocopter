@@ -209,6 +209,7 @@ function restart() {
             life.life = starting_life;
             sco=0;
             rescats=0;
+            ous=0;
             //flag.show();
         }
         
@@ -807,8 +808,9 @@ function load_game() {
         <textarea id="comment" placeholder="Your comments on the game" name="comentaris" rows="8" cols="40"></textarea>
         <br>
         <input class ="submitbut" type="submit" value="Send score! :D :D Yay!"> 
-        <input type="number" step="0.01" placeholder="1" name="distance" id="distance" style="visibility:display"> 
-        <input type="number" placeholder="2" name="clerks" id="clerks" style="visibility:display">
+        <input type="number" step="0.01" placeholder="1" name="distance" id="distance" readonly style="visibility:hidden"> 
+        <input type="number" placeholder="2" name="clerks" id="clerks" readonly style="visibility:display">
+        <input type="number" placeholder="2" name="eggs" id="eggs" readonly style="visibility:display" >
     </form>
     <button id="botogameov"  class="butt1"  onclick="restart()">
         <h2>

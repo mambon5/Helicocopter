@@ -20,4 +20,5 @@ function mostraformjoc() {
     document.getElementById("formsendsc").style.visibility="visible";
     document.getElementById("distance").value=Math.round(sco/10)/100;
     document.getElementById("clerks").value=rescats;
+    document.getElementById("eggs").value=ous;
 }
