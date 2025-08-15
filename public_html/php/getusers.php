@@ -24,7 +24,7 @@ include("connect.php");//contains all passwords.
     
      
  //get scores from da people
- $sql = "SELECT user, distance, clerks, comment FROM helikopter_users";
+ $sql = "SELECT eggs, user, distance, clerks, comment FROM helikopter_users";
     $result = $conn->query($sql);
 
 	$result2 =  $result -> fetch_all(MYSQLI_ASSOC);
@@ -35,33 +35,47 @@ include("connect.php");//contains all passwords.
 	$names = array_column($result2, 'user');
 	$scores = array_column($result2, 'distance');
 	$rescats = array_column($result2, 'clerks');
-	$comment = array_column($result2, 'comment');
-	
-	array_multisort($rescats, SORT_DESC, $scores, SORT_DESC, $names, $comment );
-	
+	$ous = array_column($result2, 'eggs');
 
+	
+	
+	array_multisort($ous, SORT_DESC, $rescats, SORT_DESC, $scores, SORT_DESC, $names);
+	
 	$max = 12;
-	$rank = "<table id='userscrs'>   <tr> <th>Pos.</th> <th>Name</th>  <th>Distance (km) </th> <th> Clerks rescued </th> <th>Comments</th> </tr>";
-	for($i = 0;  ($i < count($scores)) and ($i<$max) ; $i++) {
-		if($i<3) {
-			$rank = $rank . "<tr> <td ><b style='color:brown'>" .($i +1)."</b></td><td ><b style='color:brown'>" . $names[$i]. "</b></td> <td style='text-align: right;' ><b style='color:brown'>". 
-			 $scores[$i].	"</b></td> <td style='text-align: center;' ><b style='color:brown'>". $rescats[$i].		"</b></td><td style='color:brown' > \" ". $comment[$i].		" \" </td></tr> ";
-		} elseif ($i<7) {
-		$rank = $rank . "<tr style='color:DarkCyan'> <td >" .($i +1)."</td><td >" . $names[$i]. "</td> <td style='text-align: right;' >". 
-			 $scores[$i].	"</td> <td style='text-align: center;' >". $rescats[$i].		"</td><td> \" ". $comment[$i].		" \" </td></tr>";
-		}  else {
-		    	$rank = $rank . "<tr style='color:gray'> <td >" .($i +1)."</td><td >" . $names[$i]. "</td> <td style='text-align: right;' >". 
-			 $scores[$i].	"</td> <td style='text-align: center;' >". $rescats[$i].		"</td><td> \" ". $comment[$i].		" \" </td></tr>";
+	$rank = "<table id='userscrs'> <tr> <th>Pos.</th> <th>Name</th> 
+	<th>Distance (km) </th> <th> Clerks rescued </th> <th> Eggs nested </th> </tr> ";
+	for ($i = 0;
+		($i < count($scores)) and($i < $max); $i++) {
+		if ($i < 3) {
+			$rank = $rank.
+			"<tr> <td ><b style='color:brown'>".($i + 1).
+			"</b></td><td ><b style='color:brown'>".$names[$i].
+			"</b></td> <td style='text-align: right;' ><b style='color:brown'>".$scores[$i].
+			"</b></td> <td style='text-align: center;' ><b style='color:brown'>".$rescats[$i].
+			"</b></td> <td style='text-align: center;' ><b style='color:brown'>".$ous[$i].
+			"</b></td></tr> ";
+		}
+		elseif($i < 7) {
+			$rank = $rank.
+			"<tr style='color:DarkCyan'> <td >".($i + 1).
+			"</td><td >".$names[$i].
+			"</td> <td style='text-align: right;' >".$scores[$i].
+			"</td> <td style='text-align: center;' >".$rescats[$i].
+			"</td> <td style='text-align: center;' >".$ous[$i].
+			"</td></tr>";
+		} else {
+			$rank = $rank.
+			"<tr style='color:gray'> <td >".($i + 1).
+			"</td><td >".$names[$i].
+			"</td> <td style='text-align: right;' >".$scores[$i].
+			"</td> <td style='text-align: center;' >".$rescats[$i].
+			"</td> <td style='text-align: center;' >".$ous[$i].
+			"</td></tr>";
 		}
 	}
-	$rank = $rank . "</table>";
-	//echo $rank;
+	$rank = $rank.
+	"</table>";
 
-
-
-
-	
-	
 	// Free result set
 	$result -> free_result();
 	$url="showusers.php?rank=$rank";
