@@ -776,7 +776,7 @@ function load_game() {
         <div id="clerksresqued">        
         
         <b style='color:brown' id="dispclerks"></b>   </div>    
-        <div id="distance">km <b style='color:brown;' id="dispdistance"></b>
+        <div id="distanceRun">km <b style='color:brown;' id="dispdistance"></b>
          </div>
         <div id="flags"> <b style='color:brown;' id="dispflags"></b>
          </div>
@@ -800,15 +800,15 @@ function load_game() {
     <h2>
         <i>Send score to da server, sist!</i>
     </h2>
-    <form action="php/sendscore.php">
-        <input placeholder="your name" name="user" id="user"> 
-        <input placeholder="email" name="email" id="email">
+    <form action="php/sendscore.php" method="post">
+        <input type="text" placeholder="your name" name="user" id="user" required> 
+        <input type="email" placeholder="hola@gmail.com" name="email" id="email" required>
         <p>Comments for the creators Jordi and Romà:</p>
         <textarea id="comment" placeholder="Your comments on the game" name="comentaris" rows="8" cols="40"></textarea>
         <br>
         <input class ="submitbut" type="submit" value="Send score! :D :D Yay!"> 
-        <input placeholder="distance" name="distance" id="distance" style="visibility:hidden"> 
-        <input placeholder="clerks" name="clerks" id="clerks" style="visibility:hidden">
+        <input type="number" step="0.01" placeholder="1" name="distance" id="distance" style="visibility:display"> 
+        <input type="number" placeholder="2" name="clerks" id="clerks" style="visibility:display">
     </form>
     <button id="botogameov"  class="butt1"  onclick="restart()">
         <h2>

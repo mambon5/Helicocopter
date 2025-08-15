@@ -1,5 +1,6 @@
 <?php
-
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
    //WARNING: IN ORDER TO EXECUTE PHP FILES GO TO THE DESIGNED FOLDER BY YOUR SERVER
    // TO DO SO. USUALLY. C:/XAMPP/HTDOCS/
    // execute php files outside C:/XAMPP/HTDOCS/ and located in 
@@ -21,22 +22,26 @@ include("iploc.php");//gets IP from users.
      
 //for inserting a row into the database:
     
-$user = filter_input(INPUT_GET, 'user');
-$email =  filter_input(INPUT_GET, 'email');
-$comment =  filter_input(INPUT_GET, 'comentaris');
-$distance =  filter_input(INPUT_GET, 'distance');
-$clerks =  filter_input(INPUT_GET, 'clerks');
+$user = filter_input(INPUT_POST, 'user');
+$email =  filter_input(INPUT_POST, 'email');
+$comment =  filter_input(INPUT_POST, 'comentaris');
+$distance =  filter_input(INPUT_POST, 'distance');
+$clerks =  filter_input(INPUT_POST, 'clerks');
 
-//echo nl2br("Welcome " . $user. "! with email: ". $email. ". Distance run: ".$distance.". Clerks rescued: ".$clerks.". You commented that: <br> ".$comment. "<br>");
 
+// echo nl2br("Welcome " . $user. "! with email: ". $email. ". Distance run: ".$distance.". Clerks rescued: ".$clerks.". You commented that: <br> ".$comment. "<br>");
+
+if (empty($_POST['user']) || empty($_POST['email'])) {
+    die("Error: user and email are required.");
+}
 
 $sql = sprintf("INSERT INTO helikopter_users (user, email, comment, distance, clerks, IP)
-VALUES ('%s','%s', '%s', '%s', '%s', '%s')", 
+VALUES ('%s','%s', '%s', %f, %d, '%s')", 
 addslashes($user),
 addslashes($email),
 addslashes($comment),
-addslashes($distance),
-addslashes($clerks),
+floatval($distance),  // <-- float
+intval($clerks),      // <-- enter
 addslashes($ip_address));
 
 

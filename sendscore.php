@@ -7,18 +7,9 @@
    //  using the browser url:  
    //  http://localhost/PHPexec.php?f=C:\Roma\Nebeans_repsol\Helico\public_html\php\sendscore.php
    
-    $servername = "localhost";
-    $username = "id13995965_helicokopter";      // id12095050_roma 
-    $password = "Joricopter-6969";              //Joricopter_3
-    $database = "id13995965_kopterdatabase";    //id12095050_articlesdstuds
+	include("connect.php");//contains all passwords.
 
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $database);
-
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+    
     
      
 //for inserting a row into the database:

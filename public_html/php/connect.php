@@ -1,6 +1,7 @@
 <?php
     $servername = "localhost";
-    $username = "root";      
-    $password = "";            
-    $database = "test";  // "test"
+    $username = "user_helico";      // id12095050_roma 
+    $password = "helico_pass";              //Joricopter_3
+    $database = "helicopter";    //id12095050_articlesdstuds
 ?>
+

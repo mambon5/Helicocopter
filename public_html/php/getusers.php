@@ -1,6 +1,7 @@
 <?php
 
-
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
    //WARNING: IN ORDER TO EXECUTE PHP FILES GO TO THE DESIGNED FOLDER BY YOUR SERVER
    // TO DO SO. USUALLY. C:/XAMPP/HTDOCS/
